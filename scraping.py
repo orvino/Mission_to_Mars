@@ -50,7 +50,9 @@ def mars_news(browser):
 
 def featured_image(browser):
     # Visit URL
-    url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
+    # url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
+    url = 'https://www.jpl.nasa.gov/images/?search=&category=Mars'
+    # url = 'https://www.jpl.nasa.gov/images?query/?search=&category=Mars'
     browser.visit(url)
     # Find and click the full image button
     full_image_elem = browser.find_by_id('full_image')[0]
@@ -89,7 +91,7 @@ def mars_facts():
 
 def hemisphere_scrape(browser) :
     # 1. Use browser to visit the URL 
-    url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
+    url = 'https://marshemispheres.com/'
     browser.visit(url)
     browser.is_element_present_by_css("ul.item_list li.slide", wait_time=1)
     # 2. Create a list to hold the images and titles.
@@ -111,7 +113,7 @@ def hemisphere_scrape(browser) :
         html= browser.html
         img_soup = soup(html, 'html.parser')
         # Scrape the image link
-        img_url = 'https://astrogeology.usgs.gov/' + str(img_soup.find('img', class_='wide-image')['src'])
+        img_url = 'https://marshemispheres.com/' + str(img_soup.find('img', class_='wide-image')['src'])
         # Scrape the title
         title = img_soup.find('h2', class_='title').text
         # Define and append to the dictionary
