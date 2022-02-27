@@ -1,5 +1,3 @@
-# ADJUST THE CODE TO USE IN THE APP.PY
-
 from splinter import Browser, browser
 from bs4 import BeautifulSoup as soup
 import pandas as pd
